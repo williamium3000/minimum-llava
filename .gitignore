@@ -1,5 +1,11 @@
 playground/data/vg
+playground/data/coco
 playground/data/textvqa
 playground/data/ocr_vqa
 playground/data/LLaVA-Pretrain
 playground/data/gqa
+playground/data/eval
+checkpoints
+*.pyc
+wandb
+playground/data/*.json

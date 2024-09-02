@@ -1,4 +1,6 @@
 #!/bin/bash
+NAME="llava-v1.5-7b-lora-unfreeze-clip-lr2e-6"
+MODEL_PATH="checkpoints/llava-v1.5-7b-lora-unfreeze-clip-lr2e-6"
 
 if [ "$1" = "dev" ]; then
     echo "Evaluating in 'dev' split."
@@ -10,9 +12,9 @@ else
 fi
 
 python -m llava.eval.model_vqa_qbench \
-    --model-path liuhaotian/llava-v1.5-13b \
+    --model-path $MODEL_PATH \
     --image-folder ./playground/data/eval/qbench/images_llvisionqa/ \
-    --questions-file ./playground/data/eval/qbench/llvisionqa_$1.json \
-    --answers-file ./playground/data/eval/qbench/llvisionqa_$1_answers.jsonl \
+    --questions-file ./playground/data/eval/qbench/llvisionqa_${1}.json \
+    --answers-file ./playground/data/eval/qbench/llvisionqa_${1}_answers_$NAME.jsonl \
     --conv-mode llava_v1 \
     --lang en
